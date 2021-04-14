@@ -1,0 +1,99 @@
+\documentclass[11pt]{article}
+
+
+\usepackage[margin=1in,a4paper]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{tabularx}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{nicefrac}
+\usepackage{sectsty}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\usepackage{epigraph} %quotes
+\usepackage{amssymb} %math symbols
+\usepackage{mathtools} %more math stuff
+\usepackage{amsthm} %theorems, proofs and lemmas
+\usepackage{optidef} %fast optimization problem notation
+\usepackage[ruled,vlined,noend,linesnumbered]{algorithm2e} %algoritms/pseudocode
+
+
+%% asmthm notation
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{problem}{Problem}
+\newtheorem{definition}{Definition}
+\newtheorem{claim}{Claim}[section]
+
+\let\oldnl\nl% Store \nl in \oldnl
+\newcommand{\nonl}{\renewcommand{\nl}{\let\nl\oldnl}}% Remove line number for one specific line in algorithm
+
+\title{BIOENG-404 - Homework 2: OpenSim}
+\author{
+    Nathan Girard
+        SV - Neurocomputational
+        \and
+    Titouan Renard
+            MT - Robotics 
+}
+\date{\today}
+
+
+\begin{document}
+\maketitle
+
+\section{Overview}
+
+\section{Generic Model}
+
+\begin{enumerate}
+    \item How many bodies (segments) does model\_generic have?
+    \item How many coordinates (degrees of freedom) does model\_generic have?
+    \item Which two bodies are connected by the hip\_r joint?
+    \item Which coordinate represents right ankle flexion? In this model, is dorsiflexion described as a positive or negative angle?
+    \item What is the maximum isometric force that the soleus muscle can produce?
+    \item Some muscles in the model are represented by multiple muscle-tendon actuators. For example, the gluteus medius muscle is split into glut\_med1, glut\_med2, and glut\_med3. Which other muscles in the model are divided into multiple compartments? Why do you think these muscles are represented this way?
+\end{enumerate}
+
+\section{Tools for analyzing models and data}
+
+\begin{enumerate}
+    \setcounter{enumi}{6}
+    \item Are the ankle flexion moment arms of the gastrocnemius and soleus muscles plotted as positive or negative? Given the muscles’ geometric paths and the sign convention for the ankle\_angle\_r coordinate as defined in model\_generic, does your answer make sense?
+    \item Your plot shows the muscles’ moment arms about the ankle with the knee fully extended. Do you think the muscles’ moment arms about the ankle will change if the knee is flexed?
+    \item Open the task.c3d file located in tutorial/experimental\_data with Mokka.
+    \begin{enumerate}
+        \item Report the subject's height, weight, age, and sex by inspecting the metadata
+        \item How does the coordinate system of the experiment (lab) differ from the coordinate
+        system in OpenSim?
+        \item Visualize the ground reaction forces (Analog channels, then drag and drop the
+        component into an analog type plot). What do you observe in terms of the quality of
+        the signal?
+        \item Calculate the linear envelop (Tools -> Analog -> Smooth / Linear Envelope) of the right
+        tibialis anterior’ s EMG. What is the linear envelop?
+    \end{enumerate}
+    \item Preview the markers (task.trc) and ground reaction forces (task\_grf.mot) in the OpenSim GUI
+    by synchronizing them. Check if the forces are correctly applied to the foot. Which labels in the ground reaction force data correspond to the left and right leg?
+    \item What is the function of the Adjust Model Markers option in the Scaling tool?
+    \item What is the scale factor for the left talus, calcaneus, and toes?
+    \item In the metadata of the task.c3d file in Mokka (View -> Metadata -> SUBJECTS), there exist direct segment length measurements. Compare the left and right foot length and the one reported by the Scaling tool (check the message window after running the tool, where the length is reported in meters).
+    \item For the model shown on the right, which coordinate(s) need to be adjusted to create a model pose that “best matches” the experimental markers shown at the beginning of the swing phase?
+    \item For the model poses and experimental markers shown below, which combination of pose and markers has the minimum marker errors?
+    \item In theory, experimental markers on the thigh and shank could have more skin movement artifacts compared with the foot markers; which of the following scenarios would be most appropriate for the weighted least squares minimization solved by the Inverse Kinematics Tool?
+    \item What is the root-mean-squared (RMS) marker error from the last frame of the motion? Does this seem reasonable?
+    \item Plot the hip flexion-extension, knee flexion-extension, and ankle plantar flexion-dorsiflexion angles of the left leg on a single graph. Search through the internet and compare the shape of these curves for a healthy gait. Do they seem normal?
+    \item For the model shown on the right, what is the value ($\theta$) of the knee coordinate (Note: extension is +)?
+    \item Given that the model shown on the right is at rest, what is the knee's velocity?
+    \item For the model poses shown below at rest and with gravity (g) as the only force acting on the model, which pose requires the largest torque at the knee joint?
+    \item Plot the hip flexion-extension, knee flexion-extension, and ankle plantar flexion-dorsiflexion moments of the left leg on a single graph. Search through the internet and compare the shape of these curves for a healthy gait. Do they seem normal?
+    \item Why does the force-length curve of the contractile element of the muscle have a bell shape? Please elaborate. 
+    \item What is the meaning of the force-velocity shape of the contractile element, and how does it relates to physiology? 
+    \item After executing SO, the muscle activations task\_StaticOptimization\_activation.sto are exported in the static\_optimization folder. The EMG envelop emg\_env.sto was extracted and saved in the experimental\_data folder. Compare the activations predicted by SO with the EMG for the following muscles: lat\_gas\_l, tib\_ant\_l, rect\_fem\_l. Please comment.
+    \item What is the difference between muscle excitation and activation? What does the EMG measure? How can we compare measured EMG and predicted muscle activity from OpenSim?
+    \item Is the cost function used in SO appropriate for studying pathological conditions such as Cerebral palsy or Parkinson’s disease?
+\end{enumerate}
+
+\end{document}
