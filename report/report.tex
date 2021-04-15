@@ -6,6 +6,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage{tabularx}
+\usepackage{quoting}
 \usepackage{fancyhdr}
 \usepackage{graphicx}
 \usepackage{nicefrac}
@@ -17,6 +18,7 @@
 \usepackage{mathtools} %more math stuff
 \usepackage{amsthm} %theorems, proofs and lemmas
 \usepackage{optidef} %fast optimization problem notation
+\usepackage{changepage}
 \usepackage[ruled,vlined,noend,linesnumbered]{algorithm2e} %algoritms/pseudocode
 
 
@@ -46,16 +48,36 @@
 \maketitle
 
 \section{Overview}
-
+\begin{adjustwidth}{0.5cm}{}
+    \textit{No questions in the Overview section}
+\end{adjustwidth}
 \section{Generic Model}
 
 \begin{enumerate}
     \item How many bodies (segments) does model\_generic have?
+    \begin{adjustwidth}{0.5cm}{}
+        $12$
+    \end{adjustwidth}
     \item How many coordinates (degrees of freedom) does model\_generic have?
+    \begin{adjustwidth}{0.5cm}{}
+        $19$
+    \end{adjustwidth}
     \item Which two bodies are connected by the hip\_r joint?
+    \begin{adjustwidth}{0.5cm}{}
+        \texttt{pelvis} and \texttt{femur\_r}
+    \end{adjustwidth}
     \item Which coordinate represents right ankle flexion? In this model, is dorsiflexion described as a positive or negative angle?
+    \begin{adjustwidth}{0.5cm}{}
+        \texttt{ankle\_angle\_r} is the right ankle flexion coordinate. Dorsiflexion is associated with a positive increase in the \texttt{ankle\_angle\_r} coordinate.
+    \end{adjustwidth}
     \item What is the maximum isometric force that the soleus muscle can produce?
+    \begin{adjustwidth}{0.5cm}{}
+        \texttt{max\_isometric\_force}$=3549.0N$
+    \end{adjustwidth}
     \item Some muscles in the model are represented by multiple muscle-tendon actuators. For example, the gluteus medius muscle is split into glut\_med1, glut\_med2, and glut\_med3. Which other muscles in the model are divided into multiple compartments? Why do you think these muscles are represented this way?
+    \begin{adjustwidth}{0.5cm}{}
+        \textbf{PTN FAIT CHIER FAUT LIRE LE COURS LA NIK SA REUM JLAISSE TOMBER}
+    \end{adjustwidth}
 \end{enumerate}
 
 \section{Tools for analyzing models and data}
