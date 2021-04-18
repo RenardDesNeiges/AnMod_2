@@ -76,7 +76,9 @@
     \end{adjustwidth}
     \item Some muscles in the model are represented by multiple muscle-tendon actuators. For example, the gluteus medius muscle is split into glut\_med1, glut\_med2, and glut\_med3. Which other muscles in the model are divided into multiple compartments? Why do you think these muscles are represented this way?
     \begin{adjustwidth}{0.5cm}{}
-        \textbf{PTN FAIT CHIER FAUT LIRE LE COURS LA NIK SA REUM JLAISSE TOMBER}
+        The \textit{gluteus medius} muscle is a relatively "wide muscle", it is attached to the ilium along a line and has a much more narrow attachment to the greater trochanter (on the femur). This means it would be inaccurate to model it using a simple "point-to-point" model as is normally the case with OpenSim muscles (one would miss moments created by the width of the muscle for example). 
+        \BlankLine
+        It is not the only muscle represented that way in the simulation, the \textit{gluteus minimus} \texttt{glut\_min1,2,3\_l,r}, the \textit{gluteus maximus} \texttt{glut\_max1,2,3\_l,r}, the \textit{adductor magnus}, \texttt{add\_mag\_1,2,3\_l,r} are also represented in that way, presumably for the same reasons.
     \end{adjustwidth}
 \end{enumerate}
 
@@ -85,6 +87,12 @@
 \begin{enumerate}
     \setcounter{enumi}{6}
     \item Are the ankle flexion moment arms of the gastrocnemius and soleus muscles plotted as positive or negative? Given the muscles’ geometric paths and the sign convention for the ankle\_angle\_r coordinate as defined in model\_generic, does your answer make sense?
+    \begin{adjustwidth}{0.5cm}{}
+        The flexion moment arms are both negative. 
+        \begin{center}
+            \includegraphics[width=0.8\textwidth]{screens/soleus_lat_moments.png}
+        \end{center}
+    \end{adjustwidth}
     \item Your plot shows the muscles’ moment arms about the ankle with the knee fully extended. Do you think the muscles’ moment arms about the ankle will change if the knee is flexed?
     \item Open the task.c3d file located in tutorial/experimental\_data with Mokka.
     \begin{enumerate}
