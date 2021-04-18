@@ -19,6 +19,7 @@
 \usepackage{amsthm} %theorems, proofs and lemmas
 \usepackage{optidef} %fast optimization problem notation
 \usepackage{changepage}
+\usepackage{gensymb}
 \usepackage[ruled,vlined,noend,linesnumbered]{algorithm2e} %algoritms/pseudocode
 
 
@@ -88,25 +89,55 @@
     \setcounter{enumi}{6}
     \item Are the ankle flexion moment arms of the gastrocnemius and soleus muscles plotted as positive or negative? Given the muscles’ geometric paths and the sign convention for the ankle\_angle\_r coordinate as defined in model\_generic, does your answer make sense?
     \begin{adjustwidth}{0.5cm}{}
-        The flexion moment arms are both negative. 
-        \begin{center}
-            \includegraphics[width=0.8\textwidth]{screens/soleus_lat_moments.png}
-        \end{center}
+        The flexion moment arms are both negative. This makes sense as when standing the moment that the bodies creates on the ankle is in the sense of dorsiflexion (which here is labelled as positive) to counteract this effect the ankle muscle thus have to produce a negative moment.
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[width=\textwidth]{screens/compound.png}
+            \caption{left : moments as plotted in OpenSim (left) and schematic representation of the ankle and moments in the sagittal plane (right)}
+        \end{figure}
     \end{adjustwidth}
     \item Your plot shows the muscles’ moment arms about the ankle with the knee fully extended. Do you think the muscles’ moment arms about the ankle will change if the knee is flexed?
+    \begin{adjustwidth}{0.5cm}{}
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[width=0.6\textwidth]{screens/flexed_straight.jpg}
+            \caption{Plot of moments in the ankle for both flexed and straight knee.}
+        \end{figure}
+        When the knee is flexed, the ankle is subject to much more intense moments than when it is straight as can be show in OpenSim by plotting the straight and flexed ($90\degree$) knee moments together.
+    \end{adjustwidth}
     \item Open the task.c3d file located in tutorial/experimental\_data with Mokka.
     \begin{enumerate}
         \item Report the subject's height, weight, age, and sex by inspecting the metadata
+        \begin{adjustwidth}{0.5cm}{}
+            The subject is a $15$ year old \textit{male}, weighting $41.5kg$ and of $1610mm$ height.
+        \end{adjustwidth}
         \item How does the coordinate system of the experiment (lab) differ from the coordinate
         system in OpenSim?
+        \begin{adjustwidth}{0.5cm}{}
+            In OpenSim, the up direction corresponds to the $y$ axis, in the experiment, the $z$ axis points up.
+        \end{adjustwidth}
         \item Visualize the ground reaction forces (Analog channels, then drag and drop the
         component into an analog type plot). What do you observe in terms of the quality of
         the signal?
+        \begin{adjustwidth}{0.5cm}{}
+            \begin{figure}[h!]
+                \centering
+                \includegraphics[width=0.6\textwidth]{screens/ground_reaction.png}
+                \caption{Ground reaction forces, as displayed in Mokka}
+            \end{figure}
+            The signal is somewhat noisy and only shows values when the patient is walking over the pressure plate.
+        \end{adjustwidth}
         \item Calculate the linear envelop (Tools -> Analog -> Smooth / Linear Envelope) of the right
-        tibialis anterior’ s EMG. What is the linear envelop?
+        tibialis anterior’s EMG. What is the linear envelop?
+        \begin{adjustwidth}{0.5cm}{}
+            \textbf{wtf is the tibialis anterior’s emg lol}
+        \end{adjustwidth}
     \end{enumerate}
     \item Preview the markers (task.trc) and ground reaction forces (task\_grf.mot) in the OpenSim GUI
     by synchronizing them. Check if the forces are correctly applied to the foot. Which labels in the ground reaction force data correspond to the left and right leg?
+    \begin{adjustwidth}{0.5cm}{}
+        \textbf{wtf is the tibialis anterior’s emg lol}
+    \end{adjustwidth}
     \item What is the function of the Adjust Model Markers option in the Scaling tool?
     \item What is the scale factor for the left talus, calcaneus, and toes?
     \item In the metadata of the task.c3d file in Mokka (View -> Metadata -> SUBJECTS), there exist direct segment length measurements. Compare the left and right foot length and the one reported by the Scaling tool (check the message window after running the tool, where the length is reported in meters).
