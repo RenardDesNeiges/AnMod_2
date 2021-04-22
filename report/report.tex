@@ -77,9 +77,9 @@
     \end{adjustwidth}
     \item Some muscles in the model are represented by multiple muscle-tendon actuators. For example, the gluteus medius muscle is split into glut\_med1, glut\_med2, and glut\_med3. Which other muscles in the model are divided into multiple compartments? Why do you think these muscles are represented this way?
     \begin{adjustwidth}{0.5cm}{}
-        The \textit{gluteus medius} muscle is a relatively "wide muscle", it is attached to the ilium along a line and has a much more narrow attachment to the greater trochanter (on the femur). This means it would be inaccurate to model it using a simple "point-to-point" model as is normally the case with OpenSim muscles (one would miss moments created by the width of the muscle for example). 
+        The \textit{gluteus medius} muscle is a relatively "wide muscle", it is attached to the ilium along a line and has a much more narrow attachment to the greater trochanter (on the femur). Using a simple "point-to-point" model as is normally the case with OpenSim muscles would therefore yield an inaccurate representation of it's behavior (one would miss moments created by the width of the muscle for example). 
         \BlankLine
-        It is not the only muscle represented that way in the simulation, the \textit{gluteus minimus} \texttt{glut\_min1,2,3\_l,r}, the \textit{gluteus maximus} \texttt{glut\_max1,2,3\_l,r}, the \textit{adductor magnus}, \texttt{add\_mag\_1,2,3\_l,r} are also represented in that way, presumably for the same reasons.
+        It is not the only muscle represented that way in the simulation, the \textit{gluteus minimus} \texttt{glut\_min1,2,3\_l,r}, the \textit{gluteus maximus} \texttt{glut\_max1,2,3\_l,r}, the \textit{adductor magnus}, \texttt{add\_mag\_1,2,3\_l,r} are also represented in that way for the same reasons.
     \end{adjustwidth}
 \end{enumerate}
 
@@ -89,7 +89,7 @@
     \setcounter{enumi}{6}
     \item Are the ankle flexion moment arms of the gastrocnemius and soleus muscles plotted as positive or negative? Given the muscles’ geometric paths and the sign convention for the ankle\_angle\_r coordinate as defined in model\_generic, does your answer make sense?
     \begin{adjustwidth}{0.5cm}{}
-        The flexion moment arms are both negative. This makes sense as when standing the moment that the bodies creates on the ankle is in the sense of dorsiflexion (which here is labelled as positive) to counteract this effect the ankle muscle thus have to produce a negative moment.
+        Both the flexion moment arms are negative. When the body is in a standing pose the moment that the bodies creates on the ankle is in the direction of dorsiflexion (in our model, this corresponds to positive change of ankle angle) to counteract this effect the ankle muscle produces a negative moment.
         \begin{figure}[h!]
             \centering
             \includegraphics[width=\textwidth]{screens/compound.png}
@@ -130,31 +130,102 @@
         \item Calculate the linear envelop (Tools -> Analog -> Smooth / Linear Envelope) of the right
         tibialis anterior’s EMG. What is the linear envelop?
         \begin{adjustwidth}{0.5cm}{}
-            \textbf{wtf is the tibialis anterior’s emg lol}
+            \begin{figure}[h!]
+                \centering
+                \includegraphics[width=0.6\textwidth]{screens/tibialis_anterior_emg.png}
+                \caption{Linear envelope of the tibialis anterior EMG signal (top) and unprocessed tibialis anterior EMG signal (bottom).}
+            \end{figure}
+            The linear envelope of a signal describes the evolution of it's amplitude of oscillation over time. More rigorously it is defined as a combination of a rectification of the signal with some kind of low-pass filter.
         \end{adjustwidth}
     \end{enumerate}
     \item Preview the markers (task.trc) and ground reaction forces (task\_grf.mot) in the OpenSim GUI
     by synchronizing them. Check if the forces are correctly applied to the foot. Which labels in the ground reaction force data correspond to the left and right leg?
     \begin{adjustwidth}{0.5cm}{}
-        \textbf{wtf is the tibialis anterior’s emg lol}
+        \textbf{TODO}
     \end{adjustwidth}
     \item What is the function of the Adjust Model Markers option in the Scaling tool?
+    \begin{adjustwidth}{0.5cm}{}
+        It adjusts \textbf{TODO}
+    \end{adjustwidth}
+    
     \item What is the scale factor for the left talus, calcaneus, and toes?
+    \begin{adjustwidth}{0.5cm}{}
+        We use the same value for the left talus, calcaneurs and the toes : \\
+        \texttt{scale factor =  0.990274, 0.990274, 0.990274}
+    \end{adjustwidth}
     \item In the metadata of the task.c3d file in Mokka (View -> Metadata -> SUBJECTS), there exist direct segment length measurements. Compare the left and right foot length and the one reported by the Scaling tool (check the message window after running the tool, where the length is reported in meters).
+    \begin{adjustwidth}{0.5cm}{}
+        According to the metadata the right foot is $200mm$ and the left foot is $220mm$
+    \end{adjustwidth}
     \item For the model shown on the right, which coordinate(s) need to be adjusted to create a model pose that “best matches” the experimental markers shown at the beginning of the swing phase?
+    \begin{adjustwidth}{0.5cm}{}
+        \textit{C.	Ankle} \textbf{Chelou frr jsuis pas sur de comprendre ta réponse}
+    \end{adjustwidth} 
     \item For the model poses and experimental markers shown below, which combination of pose and markers has the minimum marker errors?
+    \begin{adjustwidth}{0.5cm}{}
+        \begin{center}
+            \includegraphics[width=0.8\textwidth]{screens/min_pose_error.png}
+        \end{center}
+        The \textit{B} pose-marker combination yields the smallest error.
+    \end{adjustwidth}
     \item In theory, experimental markers on the thigh and shank could have more skin movement artifacts compared with the foot markers; which of the following scenarios would be most appropriate for the weighted least squares minimization solved by the Inverse Kinematics Tool?
+    \begin{adjustwidth}{0.5cm}{}
+        \textit{4. All of the above}
+    \end{adjustwidth}
     \item What is the root-mean-squared (RMS) marker error from the last frame of the motion? Does this seem reasonable?
+    \begin{adjustwidth}{0.5cm}{}
+        \textbf{TODO}
+    \end{adjustwidth}
     \item Plot the hip flexion-extension, knee flexion-extension, and ankle plantar flexion-dorsiflexion angles of the left leg on a single graph. Search through the internet and compare the shape of these curves for a healthy gait. Do they seem normal?
+    \begin{adjustwidth}{0.5cm}{}
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[width=0.8\textwidth]{screens/flexion_extension.jpg}
+            \caption{Plots of left hip, knee and ankle flexion-extension over time.}
+        \end{figure}
+        The curves seem abnormal
+    \end{adjustwidth}
     \item For the model shown on the right, what is the value ($\theta$) of the knee coordinate (Note: extension is +)?
     \item Given that the model shown on the right is at rest, what is the knee's velocity?
+    \begin{adjustwidth}{0.5cm}{}
+        \textit{Answer D. $0 \degree / s$}
+    \end{adjustwidth}
     \item For the model poses shown below at rest and with gravity (g) as the only force acting on the model, which pose requires the largest torque at the knee joint?
+    \begin{adjustwidth}{0.5cm}{}
+        \textbf{TODO}
+    \end{adjustwidth}
     \item Plot the hip flexion-extension, knee flexion-extension, and ankle plantar flexion-dorsiflexion moments of the left leg on a single graph. Search through the internet and compare the shape of these curves for a healthy gait. Do they seem normal?
+    \begin{adjustwidth}{0.5cm}{}
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[width=0.8\textwidth]{screens/moments_over_time.jpg}
+            \caption{Plots of the hip, knee and ankle flexion-extension (flexion-dorsiflexion for the ankle) moments over time.}
+        \end{figure}
+    \end{adjustwidth}
     \item Why does the force-length curve of the contractile element of the muscle have a bell shape? Please elaborate. 
+    \begin{adjustwidth}{0.5cm}{}
+        \textbf{TODO}
+    \end{adjustwidth}
     \item What is the meaning of the force-velocity shape of the contractile element, and how does it relates to physiology? 
+    \begin{adjustwidth}{0.5cm}{}
+        \textbf{TODO}
+    \end{adjustwidth}
     \item After executing SO, the muscle activations task\_StaticOptimization\_activation.sto are exported in the static\_optimization folder. The EMG envelop emg\_env.sto was extracted and saved in the experimental\_data folder. Compare the activations predicted by SO with the EMG for the following muscles: lat\_gas\_l, tib\_ant\_l, rect\_fem\_l. Please comment.
+    \begin{adjustwidth}{0.5cm}{}
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[width=0.8\textwidth]{screens/SO_Activation.jpg}
+            \caption{Activation predicted by solving the static optimization problem.}
+        \end{figure}
+    \end{adjustwidth}
     \item What is the difference between muscle excitation and activation? What does the EMG measure? How can we compare measured EMG and predicted muscle activity from OpenSim?
+    \begin{adjustwidth}{0.5cm}{}
+        \textbf{TODO}
+    \end{adjustwidth}
     \item Is the cost function used in SO appropriate for studying pathological conditions such as Cerebral palsy or Parkinson’s disease?
+    \begin{adjustwidth}{0.5cm}{}
+        \textbf{TODO}
+    \end{adjustwidth}
 \end{enumerate}
 
 \end{document}
