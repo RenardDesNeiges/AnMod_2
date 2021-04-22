@@ -36,11 +36,8 @@
 
 \title{BIOENG-404 - Homework 2: OpenSim}
 \author{
-    Nathan Girard
-        SV - Neurocomputational
-        \and
     Titouan Renard
-            MT - Robotics 
+    - MT : Robotics 
 }
 \date{\today}
 
@@ -141,7 +138,7 @@
     \item Preview the markers (task.trc) and ground reaction forces (task\_grf.mot) in the OpenSim GUI
     by synchronizing them. Check if the forces are correctly applied to the foot. Which labels in the ground reaction force data correspond to the left and right leg?
     \begin{adjustwidth}{0.5cm}{}
-        \textbf{TODO}
+        Synchronizing the pressure sensor data with the motion capture shows a good alignment between the left and right leg pressure sensors. The forces on the left and right feet are respectively labeled \texttt{left\_ground\_force\_v} and \texttt{right\_ground\_force} in the \texttt{task\_grf.mot} file.
     \end{adjustwidth}
     \item What is the function of the Adjust Model Markers option in the Scaling tool?
     \begin{adjustwidth}{0.5cm}{}
@@ -150,7 +147,7 @@
     
     \item What is the scale factor for the left talus, calcaneus, and toes?
     \begin{adjustwidth}{0.5cm}{}
-        We use the same value for the left talus, calcaneurs and the toes : \\
+        We use the same value for the left talus, calcaneus and the toes : \\
         \texttt{scale factor =  0.990274, 0.990274, 0.990274}
     \end{adjustwidth}
     \item In the metadata of the task.c3d file in Mokka (View -> Metadata -> SUBJECTS), there exist direct segment length measurements. Compare the left and right foot length and the one reported by the Scaling tool (check the message window after running the tool, where the length is reported in meters).
@@ -159,7 +156,7 @@
     \end{adjustwidth}
     \item For the model shown on the right, which coordinate(s) need to be adjusted to create a model pose that “best matches” the experimental markers shown at the beginning of the swing phase?
     \begin{adjustwidth}{0.5cm}{}
-        \textit{C.	Ankle} \textbf{Chelou frr jsuis pas sur de comprendre ta réponse}
+        \textit{E.	Knee and Ankle} 
     \end{adjustwidth} 
     \item For the model poses and experimental markers shown below, which combination of pose and markers has the minimum marker errors?
     \begin{adjustwidth}{0.5cm}{}
